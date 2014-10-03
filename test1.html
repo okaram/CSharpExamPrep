@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+
+</head>
+<body>
+<script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js"> </script>
+
+<p>First name: <input data-bind="value: firstName"></input></p>
+<p>Last name: <strong data-bind="text: lastName"></strong></p>
+
+
+<table>
+  <thead>
+    <tr>
+      <td>name</td>
+    </tr>
+  </thead>
+    <tbody data-bind="foreach: names">
+      <tr>
+	<td data-bind="text: name"></td>
+    </tbody>
+</table>
+
+
+<script>
+function AppViewModel() {
+    this.firstName =ko.observable("Bert");
+    this.lastName = ko.observable("Bert");
+    this.names=ko.observableArray([ {name:"Orlando"},{name:"Lina"}]);
+}
+
+// Activates knockout.js
+var viewModel=new AppViewModel();
+ko.applyBindings(viewModel);
+
+</script>
+
+
+</body>
+
+</html>
